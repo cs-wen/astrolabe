@@ -63,6 +63,6 @@ function showEvent() {
   const eventResult = document.getElementById("eventResult");
 
 
-  eventResult.textContent = `你的小限：「${events[house - 1]}」`;
+  eventResult.textContent = `你的小限：「houseDescriptions[house - 1]}」`;
   eventResult.classList.add("visible");
 }
