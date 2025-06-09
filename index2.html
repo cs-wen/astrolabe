@@ -1,17 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
-  <title>命運 House 事件查詢</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>命運 House 查詢</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>輸入你的出生日期</h1>
-  <input type="date" id="birthdate" />
-  <button onclick="calculate()">快速檢索</button>
+  <div class="container">
+    <img src="logo.png" alt="Logo" class="logo" />
+    <h1>命運 House 查詢</h1>
+    <p class="subtitle">輸入你的生日，探索你獨特的命盤</p>
 
-  <h2 id="ageResult"></h2>
-  <button onclick="showEvent()">查看命盤</button>
-  <div id="eventResult"></div>
+    <div class="input-group">
+      <label for="birthdate">出生日期：</label>
+      <input type="date" id="birthdate" />
+    </div>
+
+    <div class="buttons">
+      <button onclick="calculate()">快速檢索</button>
+      <button onclick="showEvent()">查看命盤</button>
+    </div>
+
+    <div id="ageResult" class="result-box"></div>
+    <div id="eventResult" class="event-box"></div>
+  </div>
 
   <script src="script.js"></script>
 </body>
