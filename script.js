@@ -52,7 +52,7 @@ function calculate() {
 
   // 顯示結果
   const ageResult = document.getElementById("ageResult");
-  ageResult.textContent = `你目前的年齡是 ${age} 歲，對應 House：${house}`;
+  ageResult.textContent = `你目前的年齡是 ${age} 歲，對應 宮位：${house}`;
   ageResult.classList.add("visible");  // <== 關鍵步驟
 }
 
