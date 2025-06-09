@@ -1,6 +1,7 @@
 body {
   font-family: 'Noto Sans TC', sans-serif;
-  background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+  background: linear-gradient(to bottom, #102542, #33415c);
+  color: #e0f7fa;
   margin: 0;
   padding: 0;
   display: flex;
@@ -10,27 +11,30 @@ body {
 }
 
 .container {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.08);
   padding: 2rem;
   border-radius: 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
   width: 90%;
   max-width: 500px;
   text-align: center;
+  backdrop-filter: blur(8px);
 }
 
 .logo {
   width: 100px;
   margin-bottom: 10px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255,255,255,0.3);
 }
 
 h1 {
   margin: 0.5rem 0;
-  color: #00796b;
+  color: #ffffff;
 }
 
 .subtitle {
-  color: #555;
+  color: #cfd8dc;
   font-size: 0.9rem;
   margin-bottom: 1.5rem;
 }
@@ -41,13 +45,16 @@ h1 {
 
 label {
   font-weight: bold;
+  color: #e0f7fa;
 }
 
 input[type="date"] {
   padding: 0.5rem;
   font-size: 1rem;
-  border: 1px solid #ccc;
+  border: none;
   border-radius: 8px;
+  background-color: #ffffff;
+  color: #000;
   margin-left: 0.5rem;
 }
 
@@ -62,7 +69,7 @@ button {
   padding: 0.6rem 1.2rem;
   font-size: 1rem;
   color: white;
-  background-color: #00acc1;
+  background-color: #007acc;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -70,16 +77,28 @@ button {
 }
 
 button:hover {
-  background-color: #00838f;
+  background-color: #005fa3;
 }
+
+
 
 .result-box,
 .event-box {
+  display: none; /* 預設隱藏 */
+  opacity: 0;
+  transition: opacity 0.5s ease;
   margin-top: 1rem;
   font-size: 1.1rem;
   padding: 1rem;
   border-radius: 10px;
-  background-color: #e0f2f1;
-  color: #004d40;
+  background: linear-gradient(to right, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+  color: #ffffff;
   font-weight: bold;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* 顯示區塊並淡入 */
+.visible {
+  display: block !important;
+  opacity: 1 !important;
 }
