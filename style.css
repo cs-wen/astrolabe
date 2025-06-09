@@ -84,7 +84,7 @@ button:hover {
 
 .result-box,
 .event-box {
-  display: none; /* 預設隱藏 */
+  display: none;
   opacity: 0;
   transition: opacity 0.5s ease;
   margin-top: 1rem;
@@ -93,9 +93,28 @@ button:hover {
   border-radius: 10px;
   background: linear-gradient(to right, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
   color: #ffffff;
-  font-weight: bold;
+  font-weight: normal;
   border: 1px solid rgba(255,255,255,0.2);
+  font-family: 'Noto Serif TC', serif;  /* ✅ 與 logo 同風格 */
 }
+
+/* 只讓第一句置中 */
+.event-box .event-content {
+  text-align: left;
+  text-indent: 2em;
+  line-height: 1.8;
+  color: #fefefe;
+  font-family: 'Noto Serif TC', serif;
+}
+
+/* ✅ 讓第一句話（第一段）置中 */
+.event-box .event-content p:first-of-type {
+  text-align: center;
+  text-indent: 0;
+  font-weight: bold;
+}
+
+
 
 /* 顯示區塊並淡入 */
 .visible {
