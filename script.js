@@ -33,9 +33,11 @@ function getAge(birthDate) {
 }
 
 function calculate() {
+  // 取生日
   const birthdate = document.getElementById("birthdate").value;
   if (!birthdate) return;
 
+  // 算年齡
   const today = new Date();
   const bdate = new Date(birthdate);
   let age = today.getFullYear() - bdate.getFullYear();
@@ -44,12 +46,14 @@ function calculate() {
     age--;
   }
 
+  // 算 house
   const house = (age % 12) + 1;
   window.calculatedHouse = house;
 
+  // 顯示結果
   const ageResult = document.getElementById("ageResult");
-  ageResult.textContent = `你目前的年齡是 ${age} 歲，對應 宮年：${house}`;
-  ageResult.classList.add("visible");
+  ageResult.textContent = `你目前的年齡是 ${age} 歲，對應 House：${house}`;
+  ageResult.classList.add("visible");  // <== 關鍵步驟
 }
 
 function showEvent() {
