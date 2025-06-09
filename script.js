@@ -62,7 +62,6 @@ function showEvent() {
   const house = window.calculatedHouse;
   const eventResult = document.getElementById("eventResult");
 
-  ];
 
   eventResult.textContent = `你的小限：「${events[house - 1]}」`;
   eventResult.classList.add("visible");
