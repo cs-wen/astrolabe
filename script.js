@@ -54,3 +54,15 @@ function showEvent() {
   eventResult.classList.add("visible");
 }
 
+document.getElementById("birthdate").addEventListener("change", () => {
+  // 清除文字內容
+  document.getElementById("ageResult").textContent = "";
+  document.getElementById("eventResult").innerHTML = "";
+
+  // 移除 visible 類別，隱藏區塊
+  document.getElementById("ageResult").classList.remove("visible");
+  document.getElementById("eventResult").classList.remove("visible");
+
+  // 重設計算值
+  window.calculatedHouse = null;
+});
