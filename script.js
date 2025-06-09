@@ -62,11 +62,6 @@ function showEvent() {
   const house = window.calculatedHouse;
   const eventResult = document.getElementById("eventResult");
 
-  const events = [
-    "探索新生事物", "建立價值觀", "探索自我與家庭",
-    "社交擴展", "創意爆發", "日常穩定", "人際關係",
-    "挑戰與蛻變", "哲學學習", "社會角色成長",
-    "團體連結", "靈性統整"
   ];
 
   eventResult.textContent = `你的小限：「${events[house - 1]}」`;
