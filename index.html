@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>生日事件分類器</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      max-width: 600px;
+      line-height: 1.6;
+    }
+    h2 {
+      color: #3a3a3a;
+    }
+    label, input, button {
+      font-size: 1.2em;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 1.3em;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>輸入你的出生年月日，看看你屬於哪一事件！</h2>
+
+  <label for="birthday">出生日期：</label>
+  <input type="date" id="birthday" />
+  <button onclick="calculateEvent()">查看事件</button>
+
+  <div id="result"></div>
+
+  <script>
+    const events = [
+      "你是天生的領導者。",
+      "你擁有無限的創造力。",
+      "你是和平的推動者。",
+      "你總是樂於助人。",
+      "你有極強的直覺力。",
+      "你是天生的分析師。",
+      "你擁有強大的執行力。",
+      "你充滿魅力，吸引他人。",
+      "你喜歡冒險與挑戰。",
+      "你非常重視家庭與朋友。",
+      "你是思想自由的靈魂。",
+      "你擁有療癒他人的能量。"
+    ];
+
+    function calculateEvent() {
+      const input = document.getElementById('birthday').value;
+      if (!input) {
+        document.getElementById('result').innerText = "請先輸入出生日期。";
+        return;
+      }
+
+      const date = new Date(input);
+      const y = date.getFullYear();
+      const m = date.getMonth() + 1;
+      const d = date.getDate();
+
+      const sum = y + m + d;
+      const index = sum % 12;
+
+      document.getElementById('result').innerText = `你對應的事件是：${events[index]}`;
+    }
+  </script>
+
+</body>
+</html>
