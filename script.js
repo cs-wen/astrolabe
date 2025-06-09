@@ -33,26 +33,38 @@ function getAge(birthDate) {
 }
 
 function calculate() {
-  const birth = document.getElementById("birthdate").value;
-  if (!birth) {
-    document.getElementById("ageResult").innerText = "❗ 請先輸入出生日期";
-    return;
+  const birthdate = document.getElementById("birthdate").value;
+  if (!birthdate) return;
+
+  const today = new Date();
+  const bdate = new Date(birthdate);
+  let age = today.getFullYear() - bdate.getFullYear();
+  const m = today.getMonth() - bdate.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < bdate.getDate())) {
+    age--;
   }
 
-  const age = getAge(birth);
-  currentHouse = (age % 12) + 1;
+  const house = (age % 12) + 1;
+  window.calculatedHouse = house;
 
-  document.getElementById("ageResult").innerText =
-    `你目前 ${age} 歲，對應的是 House ${currentHouse}`;
-  document.getElementById("eventResult").innerText = ""; // 清除舊事件
+  const ageResult = document.getElementById("ageResult");
+  ageResult.textContent = `你目前的年齡是 ${age} 歲，對應 宮年：${house}`;
+  ageResult.classList.add("visible");
 }
 
 function showEvent() {
-  if (!currentHouse) {
-    document.getElementById("eventResult").innerText = "⚠️ 請先輸入生日並按下『計算 House』";
-    return;
-  }
+  if (!window.calculatedHouse) return;
 
-  const description = houseDescriptions[currentHouse - 1];
-  document.getElementById("eventResult").innerText = description;
+  const house = window.calculatedHouse;
+  const eventResult = document.getElementById("eventResult");
+
+  const events = [
+    "探索新生事物", "建立價值觀", "探索自我與家庭",
+    "社交擴展", "創意爆發", "日常穩定", "人際關係",
+    "挑戰與蛻變", "哲學學習", "社會角色成長",
+    "團體連結", "靈性統整"
+  ];
+
+  eventResult.textContent = `你的小限：「${events[house - 1]}」`;
+  eventResult.classList.add("visible");
 }
